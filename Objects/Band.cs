@@ -182,11 +182,11 @@ namespace BandTracker
 
     public static void DeleteAll()
     {
-    SqlConnection connection = DB.Connection();
-    connection.Open();
-    SqlCommand command = new SqlCommand("DELETE FROM bands;", connection);
-    command.ExecuteNonQuery();
-    connection.Close();
+      SqlConnection connection = DB.Connection();
+      connection.Open();
+      SqlCommand command = new SqlCommand("DELETE FROM bands;", connection);
+      command.ExecuteNonQuery();
+      connection.Close();
     }
 
     public override bool Equals(System.Object otherBand)
