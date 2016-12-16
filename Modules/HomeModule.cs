@@ -17,7 +17,11 @@ namespace BandTracker
         return View["index.cshtml", model];
       };
 
-      Get["/venue/{id}"] = parameters => {
+      Get["/venues/new"] = _ => {
+        return View["venue-form.cshtml"];
+      };
+
+      Get["/venues/{id}"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Venue foundVenue = Venue.Find(parameters.id);
         var bands = foundVenue.GetBands();
@@ -26,7 +30,11 @@ namespace BandTracker
         return View["venue.cshtml", model];
       };
 
-      Get["/band/{id}"] = parameters => {
+      Get["/bands/new"] = _ => {
+        return View["band-form.cshtml"];
+      };
+
+      Get["/bands/{id}"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Band foundBand = Band.Find(parameters.id);
         var venues = foundBand.GetVenues();
