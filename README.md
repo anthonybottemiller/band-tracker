@@ -1,6 +1,6 @@
 #band-tracker
 
-#####This project leverages the power of SQL to provide facilities dealing with Venues and Bands
+#####This project leverages the power of SQL to provide facilities dealing with Bands playing at venues
 
 #####By Anthony J Bottemiller - 12-15-2016
 
