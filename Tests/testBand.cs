@@ -61,7 +61,7 @@ namespace BandTracker
       Band testBand = new Band("The Soft Pack");
       testBand.Save();
 
-      Band foundBand = Band.Find(testBand.GetId);
+      Band foundBand = Band.Find(testBand.GetId());
 
       Assert.Equal(testBand, foundBand);
     }
