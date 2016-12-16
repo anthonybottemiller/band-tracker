@@ -231,8 +231,8 @@ namespace BandTracker
     {
     SqlConnection connection = DB.Connection();
     connection.Open();
-    SqlCommand cmd = new SqlCommand("DELETE FROM venues;", connection);
-    cmd.ExecuteNonQuery();
+    SqlCommand command = new SqlCommand("DELETE FROM venues;", connection);
+    command.ExecuteNonQuery();
     connection.Close();
     }
 
@@ -250,6 +250,7 @@ namespace BandTracker
         return (idEquality && nameEquality);
       }
     }
+    
     public override int GetHashCode()
     {
       return this.GetName().GetHashCode();
