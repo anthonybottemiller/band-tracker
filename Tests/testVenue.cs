@@ -21,12 +21,24 @@ namespace BandTracker
 
       Assert.Equal(firstVenue, secondVenue);
     }
+
     [Fact]
     public void Venue_GetAll_EmptyAtFirst()
     {
       int result = Venue.GetAll().Count;
 
       Assert.Equal(0, result);
+    }
+    
+    [Fact]
+    public void Venue_Save_SavesVenueToDatabase()
+    {
+      Venue testVenue = new Venue("Roseland");
+      testVenue.Save();
+
+      Venue savedVenue = Venue.GetAll()[0];
+
+      Assert.Equal(testVenue, savedVenue);
     }
   }
 }
