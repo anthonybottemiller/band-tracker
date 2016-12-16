@@ -2,7 +2,7 @@
 
 #####This project leverages the power of SQL to provide facilities dealing with Bands playing at venues
 
-#####By Anthony J Bottemiller - 12-15-2016
+#####By Anthony J Bottemiller - 12-16-2016
 
 ##Description
 This application is for tracking the venues that bands play at. 
