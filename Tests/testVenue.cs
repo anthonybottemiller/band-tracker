@@ -55,6 +55,18 @@ namespace BandTracker
       Assert.Equal(result, testId);
     }
 
+    [Fact]
+
+    public void Venue_Find_FindVenueInDatabase()
+    {
+      Venue testVenue = new Venue("Roseland");
+      testVenue.Save();
+
+      Venue foundVenue = Venue.Find(testVenue.GetId());
+
+      Assert.Equal(testVenue, foundVenue);
+    }
+
     public void Dispose()
     {
       Venue.DeleteAll();
