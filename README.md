@@ -37,6 +37,7 @@ A band can play at multiple venues and a venue can have multiple bands.
 * GO
 * CREATE TABLE venues(id INT IDENTITY, name VARCHAR(255));
 * CREATE TABLE bands(id INT IDENTITY, name VARCHAR(255));
+* CREATE TABLE venues_bands(id INT IDENTITY, venue_id INT, band_id INT);
 * GO
 * CREATE DATABASE band_tracker_test;
 * GO
@@ -44,6 +45,7 @@ A band can play at multiple venues and a venue can have multiple bands.
 * GO
 * CREATE TABLE venues(id INT IDENTITY, name VARCHAR(255));
 * CREATE TABLE bands(id INT IDENTITY, name VARCHAR(255));
+* CREATE TABLE venues_bands(id INT IDENTITY, venue_id INT, band_id INT);
 * GO
 
 ##Installation
