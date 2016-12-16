@@ -78,9 +78,10 @@ namespace BandTracker
       Venue testVenueOne = new Venue("Crystal Ballroom");
       testVenueOne.Save();
 
-      testBand.AddVenue(testVenueZero, testVenueOne);
+      testBand.AddVenue(testVenueZero);
+      testBand.AddVenue(testVenueOne);
       List<Venue> savedVenues = testBand.GetVenues();
-      List<Venue> testList = new List<Venue> {testVenueZero};
+      List<Venue> testList = new List<Venue> {testVenueZero, testVenueOne};
 
       Assert.Equal(testList, savedVenues);
     }
