@@ -56,6 +56,15 @@ namespace BandTracker
       return allBands;
     }
 
+    public static void DeleteAll()
+    {
+    SqlConnection connection = DB.Connection();
+    connection.Open();
+    SqlCommand cmd = new SqlCommand("DELETE FROM bands;", connection);
+    cmd.ExecuteNonQuery();
+    connection.Close();
+    }
+
     public override bool Equals(System.Object otherBand)
     {
       if (!(otherBand is Band))
@@ -70,6 +79,7 @@ namespace BandTracker
         return (idEquality && nameEquality);
       }
     }
+
     public override int GetHashCode()
     {
       return this.GetName().GetHashCode();

@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace BandTracker
 {
-  public class BandTest
+  public class BandTest : IDisposable
   {
     public BandTest()
     {
@@ -30,5 +30,9 @@ namespace BandTracker
       Assert.Equal(firstBand, secondBand);
     }
 
+    public void Dispose()
+    {
+      Band.DeleteAll();
+    }
   }
 }
