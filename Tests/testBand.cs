@@ -30,6 +30,17 @@ namespace BandTracker
       Assert.Equal(firstBand, secondBand);
     }
 
+    [Fact]
+    public void Band_Save_SavesBandToDatabase()
+    {
+      Band testBand = new Band("The Soft Pack");
+      testBand.Save();
+
+      Band savedBand = Band.GetAll()[0];
+
+      Assert.Equal(testBand, savedBand);
+    }
+
     public void Dispose()
     {
       Band.DeleteAll();
