@@ -9,7 +9,12 @@ namespace BandTracker
     public HomeModule()
     {
       Get["/"] = _ => {
-        return View["index.cshtml"];
+        Dictionary<string, object> model = new Dictionary<string, object>();
+        var bands = Band.GetAll();
+        var venues = Venue.GetAll();
+        model.Add("bands", bands);
+        model.Add("venues", venues);
+        return View["index.cshtml", model];
       };
     }
   }
