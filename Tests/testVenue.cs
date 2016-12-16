@@ -96,7 +96,7 @@ namespace BandTracker
     }
 
     [Fact]
-    public void Venue_AddBand_AddAssociationsThatBandsPlayedVenue()
+    public void Venue_AddBand_AddAssociationThatBandPlayedVenue()
     {
       Venue testVenue = new Venue("Roseland");
       testVenue.Save();
