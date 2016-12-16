@@ -12,6 +12,7 @@ namespace BandTracker
     {
       DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
     }
+
     [Fact]
     public void Venue_Equal_ReturnsTrueIfNamesAreTheSame_True()
     {
@@ -19,6 +20,13 @@ namespace BandTracker
       Venue secondVenue = new Venue("Roseland");
 
       Assert.Equal(firstVenue, secondVenue);
+    }
+    [Fact]
+    public void Venue_GetAll_EmptyAtFirst()
+    {
+      int result = Venue.GetAll().Count;
+
+      Assert.Equal(0, result);
     }
   }
 }
