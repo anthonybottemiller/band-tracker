@@ -56,6 +56,35 @@ namespace BandTracker
       return allVenues;
     }
 
+    public void Save()
+    {
+      SqlConnection connection = DB.Connection();
+      connection.Open();
+
+      SqlCommand command = new SqlCommand("INSERT INTO venues OUTPUT INSERTED.id VALUES (@VenueName);", connection);
+
+      SqlParameter nameParameter = new SqlParameter();
+      nameParameter.ParameterName = "@VenueName";
+      nameParameter.Value = this.GetName();
+      command.Parameters.Add(nameParameter);
+      SqlDataReader reader = command.ExecuteReader();
+
+      while(reader.Read())
+      {
+        this._id = reader.GetInt32(0);
+      }
+
+      if (reader != null)
+      {
+        reader.Close();
+      }
+
+      if (connection != null)
+      {
+        connection.Close();
+      }
+    }
+
     public override bool Equals(System.Object otherVenue)
     {
       if (!(otherVenue is Venue))
