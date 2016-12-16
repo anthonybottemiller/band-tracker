@@ -41,6 +41,20 @@ namespace BandTracker
       Assert.Equal(testBand, savedBand);
     }
 
+    [Fact]
+    public void Band_Save_SaveAssignsIdToObject()
+    {
+      Band testBand = new Band("The Soft Pack");
+      testBand.Save();
+
+      Band savedBand = Band.GetAll()[0];
+
+      int result = savedBand.GetId();
+      int testId = testBand.GetId();
+
+      Assert.Equal(result, testId);
+    }
+    
     public void Dispose()
     {
       Band.DeleteAll();
