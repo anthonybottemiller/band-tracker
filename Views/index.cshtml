@@ -13,10 +13,11 @@
     {
       @foreach (var band in Model["bands"])
       {
-        <li><a href="/band/@band.GetId()">@band.GetName()</a></li> 
+        <li><a href="/bands/@band.GetId()">@band.GetName()</a></li> 
       }
     }
   </ul>
+  <a href="/bands/new">Add a Band</a>
 </div>
 <div>
   Venues
@@ -29,8 +30,9 @@
     {
       @foreach (var venue in Model["venues"])
       {
-        <li><a href="/venue/@venue.GetId()">@venue.GetName()</a></li> 
+        <li><a href="/venues/@venue.GetId()">@venue.GetName()</a></li> 
       }
     }
   </ul>
+  <a href="/venues/new">Add a Venue</a>
 </div>
