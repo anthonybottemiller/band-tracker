@@ -95,6 +95,27 @@ namespace BandTracker
       Assert.Equal(newName, result);
     }
 
+    [Fact]
+    public void Venue_AddBand_AddAssociationsThatBandsPlayedVenue()
+    {
+      Venue testVenue = new Venue("Roseland");
+      testVenue.Save();
+
+      Band testBandZero = new Band("The Soft Pack");
+      testBandZero.Save();
+
+      Band testBandOne = new Band("Coheed and Cambria");
+      testBandOne.Save();
+
+      testVenue.AddBand(testBandZero);
+      testVenue.AddBand(testBandOne);
+
+      List<Band> result = testVenue.GetBands();
+      List<Band> testList = new List<Band>{testBandZero, testBandOne};
+
+      Assert.Equal(testList, result);
+    }
+    
     public void Dispose()
     {
       Venue.DeleteAll();
