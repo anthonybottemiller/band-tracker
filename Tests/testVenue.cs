@@ -16,7 +16,7 @@ namespace BandTracker
     public void Venue_Equal_ReturnsTrueIfNamesAreTheSame_True()
     {
       Venue firstVenue = new Venue("Roseland");
-      Venue secondVenue = new VenueTest("Roseland");
+      Venue secondVenue = new Venue("Roseland");
 
       Assert.Equal(firstVenue, secondVenue);
     }
