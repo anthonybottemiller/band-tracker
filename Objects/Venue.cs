@@ -120,6 +120,40 @@ namespace BandTracker
       }
     }
 
+    public void UpdateName(string newName)
+    {
+      SqlConnection connection = DB.Connection();
+      connection.Open();
+
+      SqlCommand command = new SqlCommand("UPDATE venues SET name = @NewName OUTPUT INSERTED.name WHERE id = @venueId;", connection);
+      
+      SqlParameter newNameParameter = new SqlParameter();
+      newNameParameter.ParameterName = "@NewName";
+      newNameParameter.Value = newName;
+      command.Parameters.Add(newNameParameter);
+
+      SqlParameter venueIdParameter = new SqlParameter();
+      venueIdParameter.ParameterName = "@venueId";
+      venueIdParameter.Value = this.GetId();
+      command.Parameters.Add(venueIdParameter);
+      SqlDataReader reader = command.ExecuteReader();
+      
+      while(reader.Read())
+      {
+        this._name = reader.GetString(0);
+      }
+
+      if (reader != null)
+      {
+        reader.Close();
+      }
+
+      if (connection != null)
+      {
+        connection.Close();
+      }
+    }
+
     public static void Delete(int id)
     {
       SqlConnection connection = DB.Connection();
