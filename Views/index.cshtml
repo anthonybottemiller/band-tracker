@@ -2,3 +2,35 @@
   Layout="Shared/_Layout.cshtml";
 }
 <h1>Band Tracker</h1>
+<div>
+  Bands
+  <ul>
+    @if (Model["bands"].Count == 0)
+    {
+      <li>No Bands in Database!</li>
+    }
+    else
+    {
+      @foreach (var band in Model["bands"])
+      {
+        <li><a href="/band/@band.GetId()">@band.GetName()</a></li> 
+      }
+    }
+  </ul>
+</div>
+<div>
+  Venues
+  <ul>
+    @if (Model["venues"].Count == 0)
+    {
+      <li>No Venues in Database!</li>
+    }
+    else
+    {
+      @foreach (var venue in Model["venues"])
+      {
+        <li><a href="/venue/@venue.GetId()">@venue.GetName()</a></li> 
+      }
+    }
+  </ul>
+</div>
