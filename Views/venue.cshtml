@@ -3,17 +3,28 @@
 }
 <h1>@Model["venue"].GetName()</h1>
 <h2>Bands that have played this venue:</h2>
-@if (Model["bands"].Count == 0)
+@if (Model["bandsPlayedVenue"].Count == 0)
 {
   <h2>No bands have played this venue yet!</h2>
 }
 else
 {
   <ul>
-    @foreach (var band in Model["bands"])
+    @foreach (var band in Model["bandsPlayedVenue"])
     {
       <li><a href="/bands/@band.GetId()">@band.GetName()</a></li>
     }
   </ul>
 }
+<div>
+  <h3>Add a band here!</h3>
+  <form action="/venues/@Model["venue"].GetId()/add_band" method="POST">
+    <select name="band-id">
+      @foreach (var band in Model["bands"])
+      {
+        <option value="@band.GetId()">@band.GetName()</option>
+      }
+    </select>
+    <button type="submit">Submit</button>
+  </form>
 <a href="/">Home</a>
