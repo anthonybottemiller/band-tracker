@@ -1,0 +1,18 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+<h1>@Model["venue"].GetName()</h1>
+@if (Model["bands"].Count == 0)
+{
+  <h2>No bands have played this venue yet!</h2>
+}
+else
+{
+  <ul>
+    @foreach (var band in Model["bands"])
+    {
+      <li><a href="/band/@band.GetId()">@band.GetName()</a></li>
+    }
+  </ul>
+}
+<a href="/">Home</a>
