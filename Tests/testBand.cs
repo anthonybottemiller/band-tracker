@@ -21,10 +21,14 @@ namespace BandTracker
       Assert.Equal(0, result);
     }
 
-    // [Fact]
-    // public void Band_Equal_ReturnsTrueIfNamesAreSame_True()
-    // {
+    [Fact]
+    public void Band_Equal_ReturnsTrueIfNamesAreSame_True()
+    {
+      Band firstBand = new Band("The Soft Pack");
+      Band secondBand = new Band("The Soft Pack");
 
-    // }
+      Assert.Equal(firstBand, secondBand);
+    }
+
   }
 }
