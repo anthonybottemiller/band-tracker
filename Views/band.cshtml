@@ -10,10 +10,21 @@
 else
 {
   <ul>
-    @foreach (var venue in Model["venues"])
+    @foreach (var venue in Model["venuesBandPlayed"])
     {
       <li><a href="/venues/@venue.GetId()">@venue.GetName()</a></li>
     }
   </ul>
 }
+<div>
+  <h3>Add a venue here!</h3>
+  <form action="/bands/@Model["band"].GetId()/add_venue" method="POST">
+    <select name="venue-id">
+      @foreach (var venue in Model["venues"])
+      {
+        <option value="@venue.GetId()">@venue.GetName()</option>
+      }
+    </select>
+    <button type="submit">Submit</button>
+  </form>
 <a href="/">Home</a>
