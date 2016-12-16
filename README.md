@@ -29,8 +29,20 @@ A band can play at multiple venues and a venue can have multiple bands.
 * SQL Server
 
 ##Database Setup
-Run these commands from PowerShell
+* Run these commands from PowerShell
 * sqlcmd -S "(localdb)\mssqllocaldb"
+* CREATE DATABASE band_tracker;
+* GO
+* USE band_tracker;
+* GO
+* CREATE TABLE venues(id INT IDENTITY, name VARCHAR(255));
+* GO
+* CREATE DATABASE band_tracker_test;
+* GO
+* USE band_tracker_test;
+* GO
+* CREATE TABLE venues(id INT IDENTITY, name VARCHAR(255));
+* GO
 
 ##Installation
 * Clone repository
