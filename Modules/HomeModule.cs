@@ -61,7 +61,7 @@ namespace BandTracker
         string newName = Request.Form["band-name"];
         Band newBand = new Band(newName);
         newBand.Save();
-        return View["new-venue-confirm.cshtml"];
+        return View["new-band-confirm.cshtml"];
       };
 
       Get["/bands/{id}"] = parameters => {
