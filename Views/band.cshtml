@@ -17,15 +17,22 @@ else
   </ul>
 }
 <div>
-  <h3>Add a venue here!</h3>
-  <form action="/bands/@Model["band"].GetId()/add_venue" method="POST">
-    <select name="venue-id">
-      @foreach (var venue in Model["venues"])
-      {
-        <option value="@venue.GetId()">@venue.GetName()</option>
-      }
-    </select>
-    <button type="submit">Submit</button>
-  </form>
+  @if (Model["venues"].Count > 0)
+  {
+    <h3>Add a venue here!</h3>
+    <form action="/bands/@Model["band"].GetId()/add_venue" method="POST">
+      <select name="venue-id">
+        @foreach (var venue in Model["venues"])
+        {
+          <option value="@venue.GetId()">@venue.GetName()</option>
+        }
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  }
+  else
+  {
+    <a href="/venue/new">Save new venue to database</a>
+  }
 </div>
 <a href="/">Home</a>
