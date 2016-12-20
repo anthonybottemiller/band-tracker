@@ -1,0 +1,11 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+  <h1>Warning!</h1>
+  <h2>You are about to delete the venue @Model.GetName()</h2>
+  <h2>Are you sure? This cannot be undone!</h2>
+  <a href="/"><button class="btn btn-success">Go Home</button></a>
+  <form action="/venues/delete/@Model.GetId()" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>

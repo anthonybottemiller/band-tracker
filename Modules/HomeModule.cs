@@ -65,6 +65,16 @@ namespace BandTracker
         return View["venue.cshtml", model];
       };
 
+      Get["/venues/delete/{id}"] = parameters => {
+        Venue foundVenue = Venue.Find(parameters.id);
+        return View["delete-venue.cshtml", foundVenue];
+      };
+
+      Delete["/venues/delete/{id}"] = parameters => {
+        Venue.Delete(parameters.id);
+        return View["venue-deleted.cshtml"];
+      };
+
       Get["/bands/new"] = _ => {
         return View["band-form.cshtml"];
       };
