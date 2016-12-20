@@ -2,6 +2,7 @@
   Layout="Shared/_Layout.cshtml";
 }
 <h1>@Model["venue"].GetName()</h1>
+<a href="/venues/edit/@Model["venue"].GetId()">Edit</a>
 <h2>Bands that have played this venue:</h2>
 @if (Model["bandsPlayedVenue"].Count == 0)
 {
