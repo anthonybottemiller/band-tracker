@@ -2,8 +2,8 @@
   Layout="Shared/_Layout.cshtml";
 }
 <h1>@Model["venue"].GetName()</h1>
-<a href="/venues/edit/@Model["venue"].GetId()">Edit</a>
-<a href="/venues/delete/@Model["venue"].GetId()">Delete</a>
+<a href="/venues/edit/@Model["venue"].GetId()"><button class="btn btn-warning">Edit</button></a>
+<a href="/venues/delete/@Model["venue"].GetId()"><button class="btn btn-danger">Delete</button></a>
 <h2>Bands that have played this venue:</h2>
 @if (Model["bandsPlayedVenue"].Count == 0)
 {
@@ -29,7 +29,7 @@ else
           <option value="@band.GetId()">@band.GetName()</option>
         }
       </select>
-      <button type="submit">Submit</button>
+      <button class="btn btn-success" type="submit">Submit</button>
     </form>
   }
   else
@@ -37,4 +37,4 @@ else
     <a href="/bands/new">Save new band to database</a>
   }
 </div>
-<a href="/">Home</a>
+<a href="/"><button class="btn btn-primary">Home</button></a>
