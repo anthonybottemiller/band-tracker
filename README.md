@@ -2,7 +2,7 @@
 
 #####This project leverages the power of SQL to provide facilities dealing with Bands playing at venues
 
-#####By Anthony J Bottemiller - 12-16-2016
+#####By Anthony J Bottemiller - 12-19-2016
 
 ##Description
 This application is for tracking the venues that bands play at. 
@@ -37,7 +37,7 @@ A band can play at multiple venues and a venue can have multiple bands.
 * GO
 * CREATE TABLE venues(id INT IDENTITY, name VARCHAR(255));
 * CREATE TABLE bands(id INT IDENTITY, name VARCHAR(255));
-* CREATE TABLE venues_bands(id INT IDENTITY, venue_id INT, band_id INT);
+* CREATE TABLE bands_venues(id INT IDENTITY, venue_id INT, band_id INT);
 * GO
 * CREATE DATABASE band_tracker_test;
 * GO
@@ -45,7 +45,7 @@ A band can play at multiple venues and a venue can have multiple bands.
 * GO
 * CREATE TABLE venues(id INT IDENTITY, name VARCHAR(255));
 * CREATE TABLE bands(id INT IDENTITY, name VARCHAR(255));
-* CREATE TABLE venues_bands(id INT IDENTITY, venue_id INT, band_id INT);
+* CREATE TABLE bands_venues(id INT IDENTITY, venue_id INT, band_id INT);
 * GO
 
 ##Installation
